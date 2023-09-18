@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     [SerializeField] private float jumpForce;
     private bool isGrounded;
+
+    [SerializeField] private AudioSource SFX;
     
     void Start()
     {
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
             if (Input.touchCount > 0 || Input.anyKey)
             {
                 rb.velocity = Vector3.up * jumpForce;
+                SFX.Play();
             }
         }
     }

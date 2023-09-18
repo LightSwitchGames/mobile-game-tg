@@ -15,7 +15,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         while (true)
         {
-            float waitTime = Random.Range(0.2f, 2f);
+            float waitTime = Random.Range(0.6f, 2f);
 
             yield return new WaitForSeconds(waitTime);
 

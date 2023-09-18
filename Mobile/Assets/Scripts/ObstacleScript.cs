@@ -19,10 +19,16 @@ public class ObstacleScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (CompareTag("Finish"))
+        {
+            Debug.Log("work god fucking dammit");
+            Destroy(this.gameObject);
+        }
         if(other.gameObject.tag == "Player")
         {
             StartCoroutine("GameOverSequence");
         }
+       
     }
 
     IEnumerator GameOverSequence()

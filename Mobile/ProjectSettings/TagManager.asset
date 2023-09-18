@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Obstacle
+  - Iamdeath
   layers:
   - Default
   - TransparentFX
