@@ -5,12 +5,8 @@ using UnityEngine;
 public class ObstacleScript : MonoBehaviour
 {
     [SerializeField] private float speed;
-    
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] private ObstacleSpawner obstSpawner;
+    private GameObject player;
     
     void Update()
     {
@@ -21,11 +17,11 @@ public class ObstacleScript : MonoBehaviour
     {
         if (CompareTag("Finish"))
         {
-            Debug.Log("work god fucking dammit");
             Destroy(this.gameObject);
         }
         if(other.gameObject.tag == "Player")
         {
+            player = other.gameObject;
             StartCoroutine("GameOverSequence");
         }
        
@@ -34,6 +30,8 @@ public class ObstacleScript : MonoBehaviour
     IEnumerator GameOverSequence()
     {
         Debug.Log("Dead");
+        Destroy(player);
+        obstSpawner.enabled = false;
         yield return new WaitForSeconds(5);
         Debug.Log("GameOverScreen");
     }
